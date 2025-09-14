@@ -1,0 +1,15 @@
+/* index.css limpio: sin estilos de Vite que desalinean */
+* { box-sizing: border-box; }
+
+html, body, #root {
+  width: 100%;
+  height: 100%;         /* permite crecer si el contenido lo requiere */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;    /* evita desbordes horizontales */
+  overflow-y: auto;      /* permite scroll vertical en pantallas chicas */
+}
