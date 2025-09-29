@@ -34,7 +34,9 @@ const DashboardRouter = () => {
   
   if (!user) return <Navigate to="/login" replace />;
 
-  switch(user.rol) {
+  // NORMALIZAR EL ROL AQUÍ TAMBIÉN
+  const userRol = user.rol === 'Administrador' ? 'Admin' : user.rol;
+    switch(userRol) {
     case 'Admin':
       return <Navigate to="/dashboard/admin" replace />;
     case 'Copropietario':
