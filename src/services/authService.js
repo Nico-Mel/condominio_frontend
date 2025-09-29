@@ -12,7 +12,7 @@ export const authService = {
 // src/services/authService.js - VERSIÓN ORIGINAL
 export const authService = {
   login: async (credentials) => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/accounts/login/`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}accounts/login/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
