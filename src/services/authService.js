@@ -31,7 +31,13 @@ export const authService = {
 
     // Guardar en localStorage
     localStorage.setItem('token', data.token);
-    localStorage.setItem('user', JSON.stringify(data.user));
+localStorage.setItem('user', JSON.stringify({
+  nombre: data.nombre,
+  apellido: data.apellido,
+  correo: data.correo,
+  rol: data.rol === 'Administrador' ? 'Admin' : data.rol
+}));
+
 
     return data;
   },
