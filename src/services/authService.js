@@ -12,24 +12,27 @@ export const authService = {
 // src/services/authService.js - VERSIÓN ORIGINAL
 export const authService = {
   login: async (credentials) => {
-    const response = await fetch('http://localhost:8000/api/accounts/login/', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/accounts/login/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ci: credentials.ci, password: credentials.password }),
+      body: JSON.stringify({
+        ci: credentials.ci,
+        password: credentials.password
+      }),
     });
-    
+
     if (!response.ok) {
       throw new Error('Credenciales incorrectas');
     }
-    
+
     const data = await response.json();
-    
+
     // Guardar en localStorage
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
-    
+
     return data;
   },
 
@@ -43,6 +46,7 @@ export const authService = {
     localStorage.removeItem('user');
   }
 };
+
 /*
 export const authService = {
   login: async (credentials) => {
