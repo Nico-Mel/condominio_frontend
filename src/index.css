@@ -1,15 +1,29 @@
-/* index.css limpio: sin estilos de Vite que desalinean */
-* { box-sizing: border-box; }
+/* src/index.css (Solución Definitiva de Overflow) */
 
-html, body, #root {
-  width: 100%;
-  height: 100%;         /* permite crecer si el contenido lo requiere */
-  margin: 0;
-  padding: 0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: auto; /* Permitir que la altura crezca con el contenido */
+    
+    /* 💥 CRÍTICO: Anular CUALQUIER regla de overflow: hidden */
+    overflow-y: scroll !important; 
+    overflow-x: hidden;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;    /* evita desbordes horizontales */
-  overflow-y: auto;      /* permite scroll vertical en pantallas chicas */
+    width: 100%;
+    height: auto;
+    
+    /* 💥 CRÍTICO: Asegurar que el body permita el contenido */
+    overflow: visible !important; 
+}
+
+#root {
+    width: 100%;
+    height: auto; 
 }

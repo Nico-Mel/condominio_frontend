@@ -1,0 +1,254 @@
+/* src/pages/auth/LoginPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* Fondo fotográfico */
+.login-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1565402170291-8491f14678db?q=80&w=1920&auto=format&fit=crop') 
+              center bottom / cover no-repeat;
+  z-index: -1;
+}
+
+/* Contenido centrado */
+.login-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Marca */
+.brand-section {
+  text-align: center;
+  margin-bottom: 3.5rem; /* más separación del card */
+}
+
+.brand-text h1 {
+  color: #fff;
+  font-size: 2.4rem;   /* un poco más grande */
+  font-weight: 900;
+  letter-spacing: 0.7px; /* ligera apertura para más elegancia */
+  margin-bottom: 0.5rem;
+}
+
+.brand-text p {
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Fondo overlay para mejorar contraste */
+.login-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.40); /* antes 0.25 → ahora un poco más oscuro */
+  z-index: -1;
+}
+
+
+
+/* Tarjeta */
+.login-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  color: #fff;
+}
+/* Título login */
+.login-card h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem; /* más compacto */
+  position: relative;
+}
+
+.login-card h2::after {
+  content: "";
+  display: block;
+  margin: 0.6rem auto 0;
+  width: 80%;     /* línea mucho más larga */
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Inputs */
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem; /* más espacio entre inputs */
+}
+
+.login-card input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-card input::placeholder {
+  color: #eee;
+}
+
+.login-card input:focus {
+  border-color: #1abc9c; /* verde más suave */
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.25);
+}
+
+/* Errores */
+.input-hint {
+  color: #ff4d4d; /* rojo más vivo */
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: -0.4rem;
+  padding: 0.3rem 0.5rem;
+  background: rgba(0, 0, 0, 0.4); /* fondo oscuro translúcido */
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.login-error {
+  background: rgba(0, 0, 0, 0.6);  /* oscuro para contraste */
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  font-weight: 600;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Botón */
+.login-card button {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #2ab77d; /* verde más natural */
+  color: #fff;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.login-card button:hover:not(:disabled) {
+  background: #239a67; /* verde más profundo */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(42, 183, 125, 0.35);
+}
+
+.login-link a {
+  color: #2ab77d;
+}
+
+.login-card button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Enlace inferior */
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* Link inferior */
+.login-link a {
+  color: #2ab77d;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.login-link a:hover {
+  color: #1abc9c;
+  text-shadow: 0 0 6px rgba(42, 183, 125, 0.6); /* glow sutil para destacar */
+}
+/* Toggle password */
+
+.password-group {
+  position: relative;
+}
+
+.password-group input {
+  width: 100%;
+  padding-right: 2.2rem; /* espacio para el icono */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eee;
+  transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+  color: #2ab77d;
+}
+
+.toggle-password svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none; /* solo el span recibe el click */
+}
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .brand-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .login-card h2 {
+    font-size: 1.4rem;
+  }
+}
